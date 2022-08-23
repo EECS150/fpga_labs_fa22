@@ -4,7 +4,7 @@
 Prof. Sophia Shao
 </p>
 <p align="center">
-TAs: Alisha Menon, Yikuan Chen
+TAs: (ordered by section) Yikuan Chen, Simon Guo, Jennifer Zhou, Paul Kwon, Ella Schwarz, Raghav Gupta
 </p>
 <p align="center">
 Department of Electrical Engineering and Computer Science
@@ -16,9 +16,9 @@ College of Engineering, University of California, Berkeley
 ## Setting Up Accounts
 
 ### Where to Get Info
-- The [course webpage](https://inst.eecs.berkeley.edu/~eecs151/sp22/) for lecture slides, links to labs, homework postings, and times for labs/discussions/OH
-- [Gradescope](https://www.gradescope.com/courses/351556) for submitting homework
-- [Piazza](https://piazza.com/berkeley/spring2022/eecs151251a/home) for announcements and a discussion forum for homeworks / labs
+- The [course webpage](https://inst.eecs.berkeley.edu/~eecs151/fa22/) for lecture slides, links to labs, homework postings, and times for labs/discussions/OH
+- [Gradescope](https://www.gradescope.com/courses/425274) for submitting homework
+- [Ed Discussion](https://edstem.org/us/courses/26469/discussion/) for announcements and a discussion forum for homeworks / labs
     - You should register a Piazza account and enroll in the class page as soon as possible
 
 ### Getting an EECS 151 Account
