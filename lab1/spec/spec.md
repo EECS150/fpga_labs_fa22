@@ -18,8 +18,7 @@ College of Engineering, University of California, Berkeley
 ### Where to Get Info
 - The [course webpage](https://inst.eecs.berkeley.edu/~eecs151/fa22/) for lecture slides, links to labs, homework postings, and times for labs/discussions/OH
 - [Gradescope](https://www.gradescope.com/courses/425274) for submitting homework
-- [Ed Discussion](https://edstem.org/us/courses/26469/discussion/) for announcements and a discussion forum for homeworks / labs
-    - You should register a Piazza account and enroll in the class page as soon as possible
+- [Ed Discussion](https://edstem.org/us/courses/26469/discussion/) for announcements and a discussion forum for homeworks / lab
 
 ### Getting an EECS 151 Account
 All students enrolled in the FPGA lab are required to get a EECS 151 class account to login to the workstations in lab.
@@ -160,7 +159,7 @@ The lab and project files are on a GitHub git repository provided by the staff.
 
 Run this in your `eecs151-xxx` home directory:
 ```shell
-git clone https://github.com/EECS150/fpga_labs_sp22
+git clone https://github.com/EECS150/fpga_labs_fa22
 ```
 
 Whenever a new lab is released, you should only need to type `git pull` (while you are in the fpga_labs_sp22 folder) to retrieve the new files.
@@ -350,7 +349,7 @@ This line assigns the properties `PACKAGE_PIN` and `IOSTANDARD` with the values 
 - The logic convention (maximum voltage, what ranges constitute low and high, etc) for that port will be `LVCMOS33`.
 
 To understand where `R14` came from, you should inspect page 9 of the [PYNQ-Z1 schematic](https://reference.digilentinc.com/_media/reference/programmable-logic/pynq-z1/pynq-z1\_sch.pdf).
-Note that `R14` is the name of an FPGA pin which connected to the `LED0` net on the PCB which drives an LED component.
+Note that `R14` is the name of an FPGA pin which is connected to the `LED0` net on the PCB which drives an LED component.
 
 <!-- Setting constraints is one of the most important steps in the FPGA development flow, especially if your circuit interfaces with the external world (receiving signals or sending signals via IO circuitry of the board). Please do not forget this step. You will not be able to generate a bitstream if you do not set the pin mapping to all the input/output signals of your top-level Verilog module; Vivado will complain and abort. More importantly, your FPGA design will not work properly if your pin assignment is wrong. A good practice is to check the documentation/schematic of your target FPGA device carefully of which IO peripheral maps to which pin, and the appropriate logic standard unless you can get the sample board constraint file from the vendor.  -->
 
@@ -482,4 +481,4 @@ This lab is the result of the work of many EECS151/251 GSIs over the years inclu
 - Fa20: Charles Hong, Kareem Ahmad, Zhenghan Lin
 - Sp21: Sean Huang, Tan Nguyen
 - Fa21: Vighnesh Iyer, Charles Hong, Zhenghan Lin, Alisha Menon
-- Sp22: Alisha Menon, Yikuan Chen
+- Sp22: Alisha Menon, Yikuan Chen pin
