@@ -2,7 +2,7 @@
 
 For each lab, please find the instructions at **/lab#/spec/spec.md**
 
-Lab 1: Due next lab 
+Lab 1: Due Tuesday, September 6th 
 
 
 # Link to the Final Project for FPGA

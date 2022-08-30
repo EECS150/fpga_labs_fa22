@@ -106,7 +106,7 @@ ssh eecs151-xxx@c111-2.eecs.berkeley.edu
 To run software on the lab machine that requires a graphical user interface (e.g. firefox, vivado GUI), you should use `x2go`.
 [Install it from here](https://wiki.x2go.org/doku.php) (or install the `x2goclient` package if you're using Linux).
 
-Open `x2go`, create new session with the following settings (use your `eecs151-xxx` class account in the "Login" field)
+Open `x2go`, create new session with the following settings (use your `eecs151-xxx` class account in the "Login" field).
 
 <p align="center">
 <img src="./figs/x2go_setup.png" width="400" />
@@ -115,7 +115,7 @@ Open `x2go`, create new session with the following settings (use your `eecs151-x
 Click the session on the right bar to start it, and you should see a CentOS Linux desktop environment.
 This desktop is running on the lab machine of your choice and is being forwarded to you by `x2go`.
 
-#### (For best compatibility, please use X2go rather than NoMachine to remotely log in)
+#### (For best compatibility, please use X2go rather than NoMachine to remotely log in.)
 
 ## Getting Familiar with our Development Environment
 
@@ -136,9 +136,9 @@ For projects of any reasonable complexity, some sort of version control is an ab
 
 In this class, we will be using Git, one of the most popular version control systems.
 Make the effort to understand how Git works, as it will make understanding how to actually use it much easier.
-Please check out [this link](http://git-scm.com/book/en/Getting-Started-Git-Basics), which provides a good high level overview
+Please check out [this link](http://git-scm.com/book/en/Getting-Started-Git-Basics), which provides a good high level overview.
 
-Once you think you understand the material above, please complete [this tutorial](http://try.github.com).
+Once you think you understand the material above, please complete [this tutorial](http://try.github.com) upto and including the `Setting up Git` section. The instructional machines already have Git installed. We will be cloning the FPGA lab repo with SSH in the next section. 
 
 Git is a very powerful tool, but it can be a bit overwhelming at first. If you don't know what you are doing, you can really cause lots of headaches for yourself and those around you, so please be careful. If you are ever doubtful about how to do something with Git ask a TA or an experienced classmate.
 
@@ -159,10 +159,10 @@ The lab and project files are on a GitHub git repository provided by the staff.
 
 Run this in your `eecs151-xxx` home directory:
 ```shell
-git clone https://github.com/EECS150/fpga_labs_fa22
+git clone git@github.com:EECS150/fpga_labs_fa22.git
 ```
 
-Whenever a new lab is released, you should only need to type `git pull` (while you are in the fpga_labs_sp22 folder) to retrieve the new files.
+Whenever a new lab is released, you should only need to type `git pull` (while you are in the `fpga_labs_sp22` folder) to retrieve the new files.
 If there are any updates, `git pull` will fetch the changes and merge them in.
 
 **You can create your own repository using your own github account to store your lab code, but make sure the repo is private.**
@@ -207,7 +207,7 @@ Here are some highlighted features of the PYNQ-Z1 board.
 
 `xc7z020clg400-1` is the part ID of our FPGA. How should we interpret it?
 `xc7z020` is the part number which identifies a specific device from a Xilinx FPGA family (in this case, it belongs to a Zynq family from the 7-series).
-`clg400` is the package number which defines how many package IO pins.
+`clg400` is the package number which defines the number of package IO pins.
 `-1` is the speed grade.
 
 Our FPGA is an Artix-7 Programmable Logic fabric which is a low-end 7-series Xilinx FPGA family (the mid-end and high-end of the 7-series are Kintex-7 and Virtex-7 families, respectively).
@@ -222,7 +222,11 @@ Our FPGA is an Artix-7 Programmable Logic fabric which is a low-end 7-series Xil
 <!-- FPGA devices are usually attributed by their logic capacities. You should be aware of the device resource of your target FPGA when designing your digital circuit (it is unlike the software world where a CPU or GPU should be able to compile and run whatever code throwing at it regardless of the code size). Early FPGAs employ primitive blocks such as LUTs or FFs (Flip-flops) for logic implementation. Then the FPGA vendors started adding hardened blocks such as fast carry adders, block memories (BRAM) and Digital Signal Processing (DSP) slices onto FPGAs to augment their capability. The carry adder macros can implement fast arithmetic and comparison operations, the BRAMs provide fast on-chip storage, and the DSP slices are able to compute multipliers very efficiently, among many other operations. State-of-the-art FPGAs also incorporate floating-point calculation capability in those hardened blocks, thus greatly enhance the performance and expand their applicability. FPGA now has evolved to a competitive programmable platform, and there are many real-world applications that can be accelerated on the FPGAs, such as networking, wireless, biology, video/image processing, finance, or deep learning. The Zynq-7000 product line (which incorporates ARM processors next to a Programmable Logic -- as in the chip we are using right now) also provides a great platform for embedded applications. -->
 
 #### Understanding your FPGA
-**Record your answers to these questions** (hint: look at the documents above)
+
+**Please submit answers for the following questions to the [Gradescope assignment](https://www.gradescope.com/courses/425274/assignments/2211232/).** 
+
+Hint: Look at the documents above!
+
 1. How many LUTs, FFs, Block RAMs (number of 36Kb blocks), and DSP slices are on the xc7z020 FPGA?
 1. How many SLICEs are in a single CLB? What does each SLICE contain?
 1. What is the difference between a SLICEL and a SLICEM?
@@ -236,7 +240,7 @@ These tools will pass your design through several stages, starting with logic sy
 The final stage generates a bitstream ready to download to your FPGA.
 
 The CAD tool provided by Xilinx is Vivado Design Suite.
-Vivado has an integrated scripting capability (using the Tcl language -- pronounced "tickle") which allows users to write Tcl commands to interact with Vivado in a command-line fashion.
+Vivado has an integrated scripting capability (using the Tcl language -- pronounced "tickle") which allows users to write Tcl commands to interact with Vivado using a command-line interface.
 
 ### Get CAD Tools on Your $PATH
 - Add the following line to your `~/.bashrc` file:
@@ -255,7 +259,7 @@ The workstations already have Vivado installed: there is nothing to do.
 If you wish to work using your laptop instead of SSHing to the workstations, you should install Vivado locally.
 You will need roughly 60GB of disk space for the installation process, and only 25GB after the installer is finished.
 
-##### Windows or Linux
+#### Windows or Linux
 Download the Windows exe installer or the Linux bin installer [directly from Xilinx](https://www.xilinx.com/support/download.html) for Vivado ML Edition 2021.1.
 You will need to create a (free) Xilinx account.
 
@@ -281,7 +285,7 @@ In the installer, select "Vivado" in the "Select Product to Install" screen, pic
 2. Vivado doesn't recognize some code in the testbenches, and those need to be commented out (see below)
 
 
-##### OSX
+#### OSX
 Vivado doesn't run natively on OSX. We provide a [VirtualBox VM Image](https://berkeley.box.com/s/s4z0ykpf0tudrm9hce8fsmitpgb2khhe) containing Vivado 2019.1. 
 The download is around 10GB, and the VM expands to 24GB after importing to VirtualBox. 
 The username is eecs151 and the password is eecs151. After entering the VM, add the following line to your /home/eecs151/.bashrc file:
@@ -291,7 +295,9 @@ export PATH=/opt/xilinx/Vivado/2019.1/bin:$PATH
 ```
 
 Alternatively, you can use a Windows or Linux VirtualBox VM and install Vivado inside the VM, using the instructions above.
-Make sure there's enough virtual disk space allocated to the VM. Note that Vivado does not run on ARM CPUs such as the Apple M1 - neither of the above methods will work for these computers.
+Make sure there's enough virtual disk space allocated to the VM. 
+
+Note that we do not recommend running Vivado on ARM CPUs such as the Apple M1 - it is possible but both speed and reliability are questionable. However, in case you're curious, you could try following this [guide](https://andrewowen.net/blog/running-xilixn-vivado-on-an-m1-mac/). You shouldn't require spice and Berkeley offers students access to Windows 10/11.
 
 ### Verilog
 Throughout the semester, you will build increasingly complex designs using Verilog, a widely used hardware description language (HDL).
@@ -331,7 +337,7 @@ and(o, a, b);
 ```
 
 ### Constraints
-Constraints files, such as `lab1/src/z1top.xdc`, attach metadata to the Verilog source using TCL commands that Vivado understands.
+Constraints files, such as `lab1/src/z1top.xdc`, attach metadata to the Verilog source using Tcl commands that Vivado understands.
 One critical piece of metadata is the mapping between FPGA input/output pins and signal names used in the top-level `z1top` module.
 
 Open up the constraint file in `lab1/src/z1top.xdc`.
@@ -345,10 +351,10 @@ set_property -dict { PACKAGE_PIN R14 IOSTANDARD LVCMOS33 } [get_ports { LEDS[0] 
 
 This line assigns the properties `PACKAGE_PIN` and `IOSTANDARD` with the values `R14` and `LVCMOS33` (respectively) to the port `LEDS[0]`, a signal we use as an output of `z1top`. Each of these properties has a separate consequence in the synthesis process.
 
-- The pin to which the `LEDS[0]` signal should be connected to the physical pin `R14` on the FPGA package.
+- The pin to which the `LEDS[0]` signal should be connected to is given by the physical pin `R14` on the FPGA package.
 - The logic convention (maximum voltage, what ranges constitute low and high, etc) for that port will be `LVCMOS33`.
 
-To understand where `R14` came from, you should inspect page 9 of the [PYNQ-Z1 schematic](https://reference.digilentinc.com/_media/reference/programmable-logic/pynq-z1/pynq-z1\_sch.pdf).
+To understand where `R14` came from, you should inspect Sheet #9 of the [PYNQ-Z1 schematic](https://reference.digilentinc.com/_media/reference/programmable-logic/pynq-z1/pynq-z1\_sch.pdf).
 Note that `R14` is the name of an FPGA pin which is connected to the `LED0` net on the PCB which drives an LED component.
 
 <!-- Setting constraints is one of the most important steps in the FPGA development flow, especially if your circuit interfaces with the external world (receiving signals or sending signals via IO circuitry of the board). Please do not forget this step. You will not be able to generate a bitstream if you do not set the pin mapping to all the input/output signals of your top-level Verilog module; Vivado will complain and abort. More importantly, your FPGA design will not work properly if your pin assignment is wrong. A good practice is to check the documentation/schematic of your target FPGA device carefully of which IO peripheral maps to which pin, and the appropriate logic standard unless you can get the sample board constraint file from the vendor.  -->
@@ -358,12 +364,12 @@ If we have a Verilog source file, and device specific constraints, we can run sy
 We have provided a Makefile that automates calling Vivado.
 
 Inside `fpga_labs_sp22/lab1` **run** `make setup`.
-This will generate a file `build/target.tcl` that sets some TCL variables that point to the Verilog sources and constraints in your design.
+This will generate a file `build/target.tcl` that sets some Tcl variables that point to the Verilog sources and constraints in your design.
 
 Next **run** `make synth` which will synthesize `z1top.v` using Vivado.
 `make synth` calls Vivado and tells it to invoke the commands in the `fpga_labs_sp22/scripts/synth.tcl` file.
 
-In that file you will find Vivado TCL commands such as:
+In that file you will find Vivado Tcl commands such as:
 ```tcl
 synth_design -top ${TOP} -part ${FPGA_PART}
 write_checkpoint -force ${TOP}.dcp
@@ -371,7 +377,7 @@ write_checkpoint -force ${TOP}.dcp
 These commands [are documented here](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2021_1/ug835-vivado-tcl-commands.pdf).
 `synth_design` runs synthesis with the loaded Verilog and XDC files, and `write_checkpoint` writes a file that contains the entire design state and can be opened by the Vivado GUI.
 
-Note that you may get this warning `The PSS7 cell must be used in this Zynq design in order to enable correct default configurations` during synthesis.
+Note that you may get this warning - `The PSS7 cell must be used in this Zynq design in order to enable correct default configurations` - during synthesis.
 This is safe to ignore since we aren't using the ARM core in the Zynq chip for this lab.
 
 ### Inspect Synthesized Design
@@ -405,7 +411,7 @@ Click the *Routing Resources* button on the menu bar to toggle the display of th
 
 ### Program the FPGA
 #### Getting an FPGA
-If you've reached this step and produced a bitstream by running Vivado on your own laptop, you can use your checked out FPGA with your laptop.
+If you've reached this step and produced a bitstream by running Vivado on your own laptop, connect an available FPGA in the lab to your laptop.
 
 
 If you're using a lab workstation, there should be an FPGA already attached to it.
@@ -445,10 +451,10 @@ The following reports are particularly important and you should pay attention to
 You will often find the `.log` (`build/synth/synth.log`, `build/impl/impl.log`) files helpful if you suspect Vivado is optimizing out a signal or if there are unexpected warnings.
 
 ## Lab Deliverables
-### Lab Checkoff (due: next lab)
-- Please submit answers for the questions in [Understanding Your FPGA](#user-content-understanding-your-fpga) to the [**Gradescope assignment**].
+### Lab Checkoff (due: Tuesday, September 6th)
 
 To checkoff for this lab, have these things ready to show the TA:
+  - Gradescope submission for the questions in [Understanding Your FPGA](#user-content-understanding-your-fpga). 
   - Demonstrate that you can generate a bitstream from the given sample code using Vivado. In addition, please show that you can program your FPGA board correctly.
   - Modify the sample code to implement a 4-input logic function of your choice. Use the four buttons (`BUTTONS[3:0]`) as inputs, and the the 2nd LED as output (`LEDS[1]`). Demonstrate that your logic circuit works correctly on the FPGA board.
 
@@ -481,4 +487,5 @@ This lab is the result of the work of many EECS151/251 GSIs over the years inclu
 - Fa20: Charles Hong, Kareem Ahmad, Zhenghan Lin
 - Sp21: Sean Huang, Tan Nguyen
 - Fa21: Vighnesh Iyer, Charles Hong, Zhenghan Lin, Alisha Menon
-- Sp22: Alisha Menon, Yikuan Chen pin
+- Sp22: Alisha Menon, Yikuan Chen
+- Fa22: Yikuan Chen, Raghav Gupta, Jennifer Zhou
