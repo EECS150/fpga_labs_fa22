@@ -297,7 +297,7 @@ export PATH=/opt/xilinx/Vivado/2019.1/bin:$PATH
 Alternatively, you can use a Windows or Linux VirtualBox VM and install Vivado inside the VM, using the instructions above.
 Make sure there's enough virtual disk space allocated to the VM. 
 
-Note that we do not recommend running Vivado on ARM CPUs such as the Apple M1 - it is possible but both speed and reliability are questionable. However, in case you're curious, you could try following this [guide](https://andrewowen.net/blog/running-xilixn-vivado-on-an-m1-mac/). You shouldn't require spice and Berkeley offers students access to Windows 10/11.
+Note that we do not recommend running Vivado on ARM CPUs such as the Apple M1 - it is possible but both speed and reliability are questionable. However, in case you're curious, you could try following this [guide](https://andrewowen.net/blog/running-xilixn-vivado-on-an-m1-mac/). You shouldn't require SPICE and Berkeley offers students access to Windows 10/11.
 
 ### Verilog
 Throughout the semester, you will build increasingly complex designs using Verilog, a widely used hardware description language (HDL).
