@@ -162,7 +162,7 @@ Run this in your `eecs151-xxx` home directory:
 git clone git@github.com:EECS150/fpga_labs_fa22.git
 ```
 
-Whenever a new lab is released, you should only need to type `git pull` (while you are in the `fpga_labs_sp22` folder) to retrieve the new files.
+Whenever a new lab is released, you should only need to type `git pull` (while you are in the `fpga_labs_fa22` folder) to retrieve the new files.
 If there are any updates, `git pull` will fetch the changes and merge them in.
 
 **You can create your own repository using your own github account to store your lab code, but make sure the repo is private.**
@@ -302,7 +302,7 @@ Note that we do not recommend running Vivado on ARM CPUs such as the Apple M1 - 
 ### Verilog
 Throughout the semester, you will build increasingly complex designs using Verilog, a widely used hardware description language (HDL).
 
-Open up the `fpga_labs_sp22/lab1/src/z1top.v` file.
+Open up the `fpga_labs_fa22/lab1/src/z1top.v` file.
 This file contains a Verilog module description with specified input and output signals.
 The `z1top` module describes the *top-level* of the FPGA logic: it has access to the signals that come into and out of the FPGA chip.
 
@@ -363,11 +363,11 @@ Note that `R14` is the name of an FPGA pin which is connected to the `LED0` net 
 If we have a Verilog source file, and device specific constraints, we can run synthesis with Vivado to convert the behavioral Verilog to a device-specific netlist which contains only FPGA primitives such as LUTs and IO buffers.
 We have provided a Makefile that automates calling Vivado.
 
-Inside `fpga_labs_sp22/lab1` **run** `make setup`.
+Inside `fpga_labs_fa22/lab1` **run** `make setup`.
 This will generate a file `build/target.tcl` that sets some Tcl variables that point to the Verilog sources and constraints in your design.
 
 Next **run** `make synth` which will synthesize `z1top.v` using Vivado.
-`make synth` calls Vivado and tells it to invoke the commands in the `fpga_labs_sp22/scripts/synth.tcl` file.
+`make synth` calls Vivado and tells it to invoke the commands in the `fpga_labs_fa22/scripts/synth.tcl` file.
 
 In that file you will find Vivado Tcl commands such as:
 ```tcl
@@ -398,8 +398,8 @@ Placement places the primitives in the netlist to the physical locations on the 
 Routing connects the placed blocks together using switch blocks and wires on the FPGA.
 The next step is timing analysis which evaluates if your design meets the target clock constraint (this only applies if your design has sequential elements, such as flip-flops or block RAMs).
 
-We have automated this: **run** `make impl` in `fpga_labs_sp22/lab1`.
-The `impl` make target is similar to the `synth` one, and it uses the commands in the `fpga_labs_sp22/scripts/impl.tcl` file.
+We have automated this: **run** `make impl` in `fpga_labs_fa22/lab1`.
+The `impl` make target is similar to the `synth` one, and it uses the commands in the `fpga_labs_fa22/scripts/impl.tcl` file.
 
 ### Inspect Implemented Design
 Open the checkpoint `build/impl/z1top_routed.dcp` in Vivado.
