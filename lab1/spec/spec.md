@@ -291,7 +291,7 @@ The download is around 10GB, and the VM expands to 24GB after importing to Virtu
 The username is eecs151 and the password is eecs151. After entering the VM, add the following line to your /home/eecs151/.bashrc file:
 
 ```shell
-export PATH=/opt/xilinx/Vivado/2019.1/bin:$PATH
+export PATH=/opt/Xilinx/Vivado/2019.1/bin:$PATH
 ```
 
 Alternatively, you can use a Windows or Linux VirtualBox VM and install Vivado inside the VM, using the instructions above.
