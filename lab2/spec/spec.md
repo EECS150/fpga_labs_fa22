@@ -36,11 +36,11 @@ Put yourself on the help queue if you have questions during each FPGA lab sessio
 ## A Structural and Behavioral Adder Design
 
 ### Build a Structural 14-bit Adder
-To help you with this task, please refer to the `Code Generation with for-generate loops` slide in the [Verilog Primer Slides](http://inst.eecs.berkeley.edu/~eecs151/fa22/files/verilog/Verilog_Primer_Slides.pdf) (slide 35).
+To help you with this task, please refer to the full adder slides and `Code Generation with for-generate loops` slide in the [Verilog Primer Slides](http://inst.eecs.berkeley.edu/~eecs151/fa22/files/verilog/Verilog_Primer_Slides.pdf) (slide 35).
 
-Open `lab2/src/full_adder.v` and **fill in the logic** to produce the full adder outputs from the inputs.
+Open `lab2/src/full_adder.v` and **fill in the logic** to produce the full adder outputs from the inputs. You can use either structural or behavior verilog for this.
 
-Open `lab2/src/structural_adder.v` and **construct a ripple carry adder** using the full adder cells you designed earlier and a 'for-generate loop'.
+Open `lab2/src/structural_adder.v` and **construct a ripple carry adder** using the full adder cells you designed earlier and a 'for-generate loop'. This must be in structural verilog. 
 
 Inspect the `z1top.v` top-level module and see how your structural adder is instantiated and hooked up to the top-level signals.
 For now, just look at the `user_adder` instance of your structural adder.
@@ -61,7 +61,7 @@ Running `make program` will run all the steps required to regenerate a bitstream
 
 **Use this flow** to generate a bitstream and program the FPGA.
 Try running `make lint` and `make elaborate` before you run `make program`.
-*Note*: `make lint` may give you a false warning about a combinational path (`%Warning-UNOPTFLAT`) - you can safely ignore it.
+*Note*: `make lint` may give you a false warning about a combinational path (`%Warning-UNOPTFLAT`) and might fail - you can safely ignore it.
 
 **Try entering** different binary numbers into your adder with the switches and buttons and see that the correct sum is displayed on the LEDs.
 If the circuit doesn't work properly on your first try, don't worry and move on to the next section where we simulate the `structural_adder` and you can easily fix bugs.
@@ -420,7 +420,7 @@ Now run the simulation again until you feel confident in your design.
 ## Put the Counter on the FPGA
 
 Once you're confident that your counter works, program the FPGA using the make-based flow as before.
-`z1top` connects your counter to the 125 MHz clock and connects switch 0 as the clock enable signal.
+`z1top` connects your counter to the 125 MHz clock and connects switch 0 as the clock enable signal. If you modified `src/counter.v`'s counting period for faster simulation before, make sure you reverse that change when programming the FPGA.
 If done correctly, LEDs 0 through 3 should continually count up by 1 each second.
 
 This process, where we use simulation to verify the functionality of a module before programming it onto the FPGA, will be the one we use throughout this semester.
