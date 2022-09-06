@@ -420,7 +420,7 @@ Now run the simulation again until you feel confident in your design.
 ## Put the Counter on the FPGA
 
 Once you're confident that your counter works, program the FPGA using the make-based flow as before.
-`z1top` connects your counter to the 125 MHz clock and connects switch 0 as the clock enable signal. If you modified `src/counter.v`'s counting period for faster simulation before, make sure you reverse that change when programming the FPGA.
+`z1top` connects your counter to the 125 MHz clock and connects switch 0 as the clock enable signal. **If you modified `src/counter.v`'s counting period to make the simulation shorter, make sure you undo that change when programming the FPGA (i.e. make sure it counts 1 second when programming).**
 If done correctly, LEDs 0 through 3 should continually count up by 1 each second.
 
 This process, where we use simulation to verify the functionality of a module before programming it onto the FPGA, will be the one we use throughout this semester.
@@ -450,4 +450,4 @@ This lab is the result of the work of many EECS151/251 GSIs over the years inclu
 - Sp21: Sean Huang, Tan Nguyen
 - Fa21: Vighnesh Iyer, Charles Hong, Zhenghan Lin, Alisha Menon
 - Sp22: Alisha Menon, Yikuan Chen, Seah Kim
-- Fa22: Simon Guo
+- Fa22: Simon Guo, Yikuan Chen
