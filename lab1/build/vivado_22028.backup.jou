@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Thu Sep  1 19:43:54 2022
+# Process ID: 22028
+# Current directory: /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab1/build
+# Command line: vivado
+# Log file: /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab1/build/vivado.log
+# Journal file: /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab1/build/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_checkpoint /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab1/build/synth/z1top.dcp
+close_project
+open_checkpoint /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab1/build/impl/z1top_routed.dcp
