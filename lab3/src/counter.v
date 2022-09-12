@@ -2,7 +2,6 @@ module counter #(
     parameter CYCLES_PER_SECOND = 125_000_000
 )(
     input clk,
-    input ce,
     input [3:0] buttons,
     output [3:0] leds
 );
