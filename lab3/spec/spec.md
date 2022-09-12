@@ -15,16 +15,16 @@ College of Engineering, University of California, Berkeley
 ## Before You Begin
 ### Fetch Latest Lab Skeleton
 ```shell
-cd fpga_labs_sp22
+cd fpga_labs_fa22
 git pull origin master
 ```
 
 ### Verilog Reading
 Look through these documents if you haven't already.
 
-- [Verilog Primer Slides](https://inst.eecs.berkeley.edu/~eecs151/sp22/files/verilog/Verilog_Primer_Slides.pdf) - overview of the Verilog language
-- [wire vs reg](https://inst.eecs.berkeley.edu/~eecs151/sp22/files/verilog/wire_vs_reg.pdf) - the differences between `wire` and `reg` nets and when to use each one
-- [always @ blocks](https://inst.eecs.berkeley.edu/~eecs151/sp22/files/verilog/always_at_blocks.pdf) - understanding the differences between the two types of `always @` blocks and what they synthesize to
+- [Verilog Primer Slides](https://inst.eecs.berkeley.edu/~eecs151/fa22/files/verilog/Verilog_Primer_Slides.pdf) - overview of the Verilog language
+- [wire vs reg](https://inst.eecs.berkeley.edu/~eecs151/fa22/files/verilog/wire_vs_reg.pdf) - the differences between `wire` and `reg` nets and when to use each one
+- [always @ blocks](https://inst.eecs.berkeley.edu/~eecs151/fa22/files/verilog/always_at_blocks.pdf) - understanding the differences between the two types of `always @` blocks and what they synthesize to
 
 ## Overview
 In this lab we will:
