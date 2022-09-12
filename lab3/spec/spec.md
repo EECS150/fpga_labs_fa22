@@ -3,8 +3,7 @@
 Prof. Sophia Shao
 </p>
 <p align="center">
-TAs: Alisha Menon, Yikuan Chen, Seah Kim
-</p>
+TAs: (ordered by section) Yikuan Chen, Simon Guo, Jennifer Zhou, Paul Kwon, Ella Schwarz, Raghav Gupta</p>
 <p align="center">
 Department of Electrical Engineering and Computer Science
 </p>
