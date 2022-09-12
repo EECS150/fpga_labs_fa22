@@ -207,7 +207,7 @@ The circuit implementation has the following behavior:
   - All counters should start at 0.
   - If the sample pulse generator emits a 1 on a clock edge, increment the saturating counter if the input signal is also 1, else reset the saturating counter to 0.
   - Once the saturating counter reaches `PULSE_CNT_MAX`, it should hold that value indefinitely until the sampled input signal becomes 0.
-  - The `debounced_signal` of your debouncer should be an equality check between the saturating counter and `PULSE_CNT_MAX`.
+  - The `debounced_signal` of your debouncer should be an equality check between the saturating counter and `PULSE_CNT_MAX`. This `debounced_signal` should be a clean, stable button press signal.
 
 **Implement** the debouncer in `lab3/src/debouncer.v`.
 You can use the same sample pulse generator for all input signals into your `debouncer`, but you should have a separate saturating counter per input signal.
