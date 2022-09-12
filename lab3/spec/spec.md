@@ -374,3 +374,4 @@ This lab is the result of the work of many EECS151/251 GSIs over the years inclu
 - Sp21: Sean Huang, Tan Nguyen
 - Fa21: Vighnesh Iyer, Charles Hong, Zhenghan Lin, Alisha Menon
 - Sp22: Alisha Menon, Yikuan Chen, Seah Kim
+- Fa22: Jennifer Zhou, Yikuan Chen
