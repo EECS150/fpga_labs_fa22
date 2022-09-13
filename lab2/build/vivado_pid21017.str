@@ -1,0 +1,104 @@
+/*
+
+Xilinx Vivado v2021.1 (64-bit) [Major: 2021, Minor: 1]
+SW Build: 3247384 on Thu Jun 10 19:36:07 MDT 2021
+IP Build: 3246043 on Fri Jun 11 00:30:35 MDT 2021
+
+Process ID (PID): 21017
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Thu Sep 08 20:05:05 PDT 2022
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: CentOS Linux release 7.9.2009 (Core)
+OS Version: 5.4.206-200.el7.x86_64
+OS Architecture: amd64
+Available processors (cores): 4
+
+Display: 2
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.2 64-bit
+Java home: 	/share/instsww/xilinx/Vivado/2021.1/tps/lnx64/jre11.0.2
+Java executable: 	/share/instsww/xilinx/Vivado/2021.1/tps/lnx64/jre11.0.2/bin/java
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	eecs151-afk
+User home directory: /home/cc/eecs151/fa22/class/eecs151-afk
+User working directory: /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /share/instsww/xilinx/Vivado
+HDI_APPROOT: /share/instsww/xilinx/Vivado/2021.1
+RDI_DATADIR: /share/instsww/xilinx/Vivado/2021.1/data
+RDI_BINDIR: /share/instsww/xilinx/Vivado/2021.1/bin
+
+Vivado preferences file: /home/cc/eecs151/fa22/class/eecs151-afk/.Xilinx/Vivado/2021.1/vivado.xml
+Vivado preferences directory: /home/cc/eecs151/fa22/class/eecs151-afk/.Xilinx/Vivado/2021.1/
+Vivado layouts directory: /home/cc/eecs151/fa22/class/eecs151-afk/.Xilinx/Vivado/2021.1/data/layouts
+PlanAhead jar file: 	/share/instsww/xilinx/Vivado/2021.1/lib/classes/planAhead.jar
+Vivado log file: 	
+Vivado journal file: 	
+Engine tmp dir: 	./.Xil/Vivado-21017-c111-13.eecs.berkeley.edu
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /share/instsww/xilinx/Vivado/2021.1/ids_lite/ISE
+XILINXD_LICENSE_FILE: 2100@license-srv.eecs.berkeley.edu
+XILINX_DSP: /share/instsww/xilinx/Vivado/2021.1/ids_lite/ISE
+XILINX_HLS: /share/instsww/xilinx/Vitis_HLS/2021.1
+XILINX_PLANAHEAD: /share/instsww/xilinx/Vivado/2021.1
+XILINX_VITIS: 
+XILINX_VIVADO: /share/instsww/xilinx/Vivado/2021.1
+XILINX_VIVADO_HLS: /share/instsww/xilinx/Vivado/2021.1
+
+
+GUI allocated memory:	416 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,918 MB
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// [GUI Memory]: 59 MB (+59122kb) [00:00:04]
+// [Engine Memory]: 1,645 MB (+1573837kb) [00:00:04]
+// [GUI Memory]: 72 MB (+10527kb) [00:00:05]
+// [GUI Memory]: 76 MB (+604kb) [00:00:05]
+// [GUI Memory]: 81 MB (+1759kb) [00:00:05]
+// [GUI Memory]: 99 MB (+14263kb) [00:00:05]
+// [Engine Memory]: 1,732 MB (+4577kb) [00:00:05]
+// Xgd.load filename: /share/instsww/xilinx/Vivado/2021.1/data/parts/xilinx/zynq/devint/zynq/xc7z020/xc7z020.xgd; ZipEntry: xc7z020_detail.xgd elapsed time: 1s
+// DeviceModel: Load Xgds SwingWorker Join Forever elapsed time: 1.2s
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [GUI Memory]: 121 MB (+17820kb) [00:00:17]
+// [Engine Memory]: 1,889 MB (+73258kb) [00:00:17]
+// [GUI Memory]: 131 MB (+3587kb) [00:00:17]
+// Schematic: addNotify
+// TclEventType: START_PROGRESS_DIALOG
+// [GUI Memory]: 145 MB (+8111kb) [00:00:20]
+// TclEventType: START_PROGRESS_DIALOG
+// TclEventType: STOP_PROGRESS_DIALOG
+// bz (cs):  Sourcing Tcl script '/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/../scripts/elaborate.tcl' : addNotify
+// TclEventType: STOP_PROGRESS_DIALOG
+dismissDialog("Sourcing Tcl script '/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/../scripts/elaborate.tcl'"); // bz
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// HMemoryUtils.trashcanNow. Engine heap size: 1,852 MB. GUI used memory: 101 MB. Current time: 9/8/22, 8:05:06 PM PDT
+// PAPropertyPanels.initPanels (structural_test_adder (structural_adder)) elapsed time: 0.3s
+// Elapsed time: 133 seconds
+selectButton(PAResourceQtoS.SchematicView_PREVIOUS, "Schematic_previousview"); // E
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
