@@ -5,7 +5,7 @@
 
 module counter_testbench();
     reg clock = 0;
-    reg ce;
+    reg ce = 0;
     wire [3:0] LEDS;
 
     counter ctr (
@@ -29,7 +29,13 @@ module counter_testbench();
 
         // TODO: Change input values and step forward in time to test
         // your counter and its clock enable/disable functionality.
-
+        for (integer i = 0, currNum = 0; i < 34 ; i++) begin
+            #(`MS)
+            currNum = ce ? currNum + 1 : currNum;
+            assert(LEDS == currNum % 16) 
+            else $display("ERROR: Expected count to be %d, but got %d.", currNum % 16, LEDS);
+            ce = ~ce;
+        end
 
         `ifndef IVERILOG
             $vcdplusoff;

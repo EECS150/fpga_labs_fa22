@@ -1,0 +1,114 @@
+
+****** Vivado v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/../scripts/elaborate.tcl
+# source ./target.tcl
+## set ABS_TOP                         /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2
+## set TOP                            z1top
+## set FPGA_PART                      xc7z020clg400-1
+## set_param general.maxThreads       4
+## set_param general.maxBackupLogs    0
+## set RTL { /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/adder_tester.v /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/behavioral_adder.v /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/counter.v /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/full_adder.v /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/z1top.v }
+## set CONSTRAINTS { /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/z1top.xdc }
+# if {[string trim ${RTL}] ne ""} {
+#   read_verilog -v ${RTL}
+# }
+# if {[string trim ${CONSTRAINTS}] ne ""} {
+#   read_xdc ${CONSTRAINTS}
+# }
+# synth_design -top ${TOP} -part ${FPGA_PART} -rtl
+Command: synth_design -top z1top -part xc7z020clg400-1 -rtl
+Starting synth_design
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2562.727 ; gain = 0.000 ; free physical = 2559 ; free virtual = 15607
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'z1top' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/z1top.v:4]
+INFO: [Synth 8-6157] synthesizing module 'structural_adder' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+INFO: [Synth 8-6157] synthesizing module 'full_adder' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/full_adder.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'full_adder' (1#1) [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/full_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[0].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[1].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[2].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[3].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[4].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[5].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[6].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[7].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[8].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[9].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[10].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[11].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[12].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 1st driver pin 'structural_adder:/adders[13].generated_adder/sum' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 with 2nd driver pin 'GND' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v-1.7 is connected to at least one constant driver which has been preserved, other driver is ignored [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'structural_adder' (2#1) [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v:1]
+INFO: [Synth 8-6157] synthesizing module 'behavioral_adder' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/behavioral_adder.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'behavioral_adder' (3#1) [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/behavioral_adder.v:1]
+INFO: [Synth 8-6157] synthesizing module 'adder_tester' [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/adder_tester.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'adder_tester' (4#1) [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/adder_tester.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'z1top' (5#1) [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/z1top.v:4]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2562.727 ; gain = 0.000 ; free physical = 2585 ; free virtual = 15647
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2562.727 ; gain = 0.000 ; free physical = 2579 ; free virtual = 15640
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2562.727 ; gain = 0.000 ; free physical = 2579 ; free virtual = 15640
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2562.727 ; gain = 0.000 ; free physical = 2572 ; free virtual = 15633
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-141] Inserted 4 OBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/z1top.xdc]
+Finished Parsing XDC File [/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/z1top.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2594.582 ; gain = 0.000 ; free physical = 2476 ; free virtual = 15538
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2594.582 ; gain = 31.855 ; free physical = 2476 ; free virtual = 15538
+15 Infos, 0 Warnings, 42 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2594.582 ; gain = 36.141 ; free physical = 2476 ; free virtual = 15538
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+# start_gui

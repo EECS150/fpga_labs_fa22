@@ -1,0 +1,140 @@
+/*
+
+Xilinx Vivado v2021.1 (64-bit) [Major: 2021, Minor: 1]
+SW Build: 3247384 on Thu Jun 10 19:36:07 MDT 2021
+IP Build: 3246043 on Fri Jun 11 00:30:35 MDT 2021
+
+Process ID (PID): 6390
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Thu Sep 08 18:14:17 PDT 2022
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: CentOS Linux release 7.9.2009 (Core)
+OS Version: 5.4.206-200.el7.x86_64
+OS Architecture: amd64
+Available processors (cores): 4
+
+Display: 2
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.2 64-bit
+Java home: 	/share/instsww/xilinx/Vivado/2021.1/tps/lnx64/jre11.0.2
+Java executable: 	/share/instsww/xilinx/Vivado/2021.1/tps/lnx64/jre11.0.2/bin/java
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	eecs151-afk
+User home directory: /home/cc/eecs151/fa22/class/eecs151-afk
+User working directory: /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /share/instsww/xilinx/Vivado
+HDI_APPROOT: /share/instsww/xilinx/Vivado/2021.1
+RDI_DATADIR: /share/instsww/xilinx/Vivado/2021.1/data
+RDI_BINDIR: /share/instsww/xilinx/Vivado/2021.1/bin
+
+Vivado preferences file: /home/cc/eecs151/fa22/class/eecs151-afk/.Xilinx/Vivado/2021.1/vivado.xml
+Vivado preferences directory: /home/cc/eecs151/fa22/class/eecs151-afk/.Xilinx/Vivado/2021.1/
+Vivado layouts directory: /home/cc/eecs151/fa22/class/eecs151-afk/.Xilinx/Vivado/2021.1/data/layouts
+PlanAhead jar file: 	/share/instsww/xilinx/Vivado/2021.1/lib/classes/planAhead.jar
+Vivado log file: 	
+Vivado journal file: 	
+Engine tmp dir: 	./.Xil/Vivado-6390-c111-13.eecs.berkeley.edu
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /share/instsww/xilinx/Vivado/2021.1/ids_lite/ISE
+XILINXD_LICENSE_FILE: 2100@license-srv.eecs.berkeley.edu
+XILINX_DSP: /share/instsww/xilinx/Vivado/2021.1/ids_lite/ISE
+XILINX_HLS: /share/instsww/xilinx/Vitis_HLS/2021.1
+XILINX_PLANAHEAD: /share/instsww/xilinx/Vivado/2021.1
+XILINX_VITIS: 
+XILINX_VIVADO: /share/instsww/xilinx/Vivado/2021.1
+XILINX_VIVADO_HLS: /share/instsww/xilinx/Vivado/2021.1
+
+
+GUI allocated memory:	400 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,892 MB
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// [GUI Memory]: 73 MB (+73754kb) [00:00:04]
+// [Engine Memory]: 1,709 MB (+1640049kb) [00:00:04]
+// Xgd.load filename: /share/instsww/xilinx/Vivado/2021.1/data/parts/xilinx/zynq/devint/zynq/xc7z020/xc7z020.xgd; ZipEntry: xc7z020_detail.xgd elapsed time: 1s
+// DeviceModel: Load Xgds SwingWorker Join Forever elapsed time: 1.2s
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [GUI Memory]: 108 MB (+33177kb) [00:00:17]
+// [Engine Memory]: 1,872 MB (+81421kb) [00:00:17]
+// [GUI Memory]: 117 MB (+4207kb) [00:00:17]
+// [GUI Memory]: 125 MB (+2205kb) [00:00:17]
+// Schematic: addNotify
+// [GUI Memory]: 136 MB (+3958kb) [00:00:19]
+// TclEventType: START_PROGRESS_DIALOG
+// TclEventType: STOP_PROGRESS_DIALOG
+// bz (cs):  Sourcing Tcl script '/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/../scripts/elaborate.tcl' : addNotify
+// TclEventType: STOP_PROGRESS_DIALOG
+dismissDialog("Sourcing Tcl script '/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/../scripts/elaborate.tcl'"); // bz
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// HMemoryUtils.trashcanNow. Engine heap size: 1,828 MB. GUI used memory: 99 MB. Current time: 9/8/22, 6:14:18 PM PDT
+// PAPropertyPanels.initPanels (structural_test_adder (structural_adder)) elapsed time: 0.3s
+// [GUI Memory]: 155 MB (+12855kb) [00:06:18]
+// Elapsed time: 451 seconds
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[z1top, user_adder (structural_adder)]", 6); // bC
+// Elapsed time: 317 seconds
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aK
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 172, 15); // dS
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "make program", true); // l
+// Tcl Command: 'make program'
+// Tcl Command: 'make program'
+// Tcl Message: make program 
+// Tcl Message: make[1]: Entering directory `/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build' make[1]: Leaving directory `/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build' make[1]: *** No rule to make target `program'.  Stop. ambiguous command name "make": make_diff_pair_ports make_wrapper 
+// Tcl Command: 'rdi::info_commands {e*}'
+// Tcl Command: 'rdi::info_commands {ex*}'
+// Tcl Command: 'rdi::info_commands {exa*}'
+// Tcl Command: 'rdi::info_commands {exe*}'
+// Tcl Command: 'rdi::info_commands {exec*}'
+// Elapsed time: 22 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "exec make program", true); // l
+// Tcl Command: 'exec make program'
+// Tcl Command: 'exec make program'
+// Tcl Message: exec make program 
+// Tcl Message: make[1]: Entering directory `/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build' make[1]: Leaving directory `/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build' make[1]: *** No rule to make target `program'.  Stop. 
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "clear", true); // l
+// Tcl Command: 'clear'
+// Tcl Command: 'clear'
+// Tcl Message: clear 
+// Tcl Message: [H[2J[3J 
+closeFrame(PAResourceOtoP.PAViews_TCL_CONSOLE, "Tcl Console"); // az
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, elab_constrs_1, General Messages, [Common 17-259] Unknown Tcl command 'make program' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.. ]", 2); // ah
+collapseTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, elab_constrs_1, General Messages, [Common 17-259] Unknown Tcl command 'make program' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.. ]", 2); // ah
+selectButton(RDIResource.HFilterToolBar_HIDE_ALL, "Hide All"); // a
+selectButton(RDIResource.HFilterToolBar_SHOW_ALL, "Show All"); // a
+selectCheckBox(PAResourceItoN.MsgView_WARNING_MESSAGES, (String) null, false); // g: FALSE
+selectCheckBox(PAResourceItoN.MsgView_WARNING_MESSAGES, (String) null, true); // g: TRUE
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, elab_constrs_1]", 0, true, false, false, false, true, false); // ah - Popup Trigger - Node
+selectMenu(PAResourceItoN.MsgTreePanel_MESSAGE_SEVERITY, "Message Severity"); // ak
+selectMenuItem(PAResourceItoN.MsgTreePanel_DISCARD_USER_CREATED_MESSAGES, "Discard User Created Messages"); // an
+// HMemoryUtils.trashcanNow. Engine heap size: 1,851 MB. GUI used memory: 101 MB. Current time: 9/8/22, 6:44:18 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,844 MB. GUI used memory: 96 MB. Current time: 9/8/22, 7:14:18 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE

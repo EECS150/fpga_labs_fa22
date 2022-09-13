@@ -1,5 +1,5 @@
 // Comment out this line when you want to instantiate your counter
-`define ADDER_CIRCUIT
+// `define ADDER_CIRCUIT
 
 module z1top (
     input CLK_125MHZ_FPGA,

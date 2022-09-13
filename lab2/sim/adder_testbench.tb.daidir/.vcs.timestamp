@@ -1,0 +1,143 @@
+0 
+42
++cli+4
++itf+/share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/vcsdp.tab
++lint=all,noVCDE,noNS,noSVA-UA
++memcbk
++vcsd
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/share/instsww/synopsys-new/vcs/P-2019.06/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/libvirsim.so /share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/liberrorinf.so /share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/libsnpsmalloc.so /share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/libvfs.so
+-Mout=adder_testbench.tb
+-Msaverestoreobj=/share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/share/instsww/synopsys-new/vcs/P-2019.06/include
+-Xcbug=0x1
+-Xnotice=1
+-debug=4
+-full64
+-gen_obj
+-line
+-o adder_testbench.tb
+-picarchive
+-sverilog
+-timescale=1ns/10ps
+-top
+/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/adder_tester.v
+/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/behavioral_adder.v
+/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/counter.v
+/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/full_adder.v
+/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v
+/home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/z1top.v
+/share/instsww/synopsys-new/vcs/P-2019.06/linux64/bin/vcs1
+adder_testbench
+adder_testbench.v
+81
+XSESSION_EXEC=mate-session
+XDG_SESSION_ID=828
+XDG_RUNTIME_DIR=/run/user/80478
+XDG_DATA_DIRS=/home/cc/eecs151/fa22/class/eecs151-afk/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+XDG_CURRENT_DESKTOP=MATE
+XAUTHORITY=/home/cc/eecs151/fa22/class/eecs151-afk/.Xauthority
+X2GO_SESSION=eecs151-afk-61-1663039246_stDMATE_dp32
+X2GO_AGENT_PID=17057
+VTE_VERSION=5204
+VSCODE_GIT_IPC_HANDLE=/run/user/80478/vscode-git-a7514320c3.sock
+VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
+VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=--ms-enable-electron-run-as-node
+VMR_MODE_FLAG=64
+VCS_PATH=/share/instsww/synopsys-new/vcs/P-2019.06/bin
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_HOME=/share/instsww/synopsys-new/vcs/P-2019.06
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/share/instsww/synopsys-new/vcs/P-2019.06/linux64
+TERM_PROGRAM_VERSION=1.70.2
+TERM_PROGRAM=vscode
+SYNOPSYS_ROOT=/home/ff/cs250/tools/synopsys
+STARTUP=/usr/bin/env LD_LIBRARY_PATH= mate-session
+SSH_CONNECTION=23.93.64.99 51543 128.32.40.181 22
+SSH_CLIENT=23.93.64.99 51543 22
+SSH_AUTH_SOCK=/run/user/80478/keyring/ssh
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SSH_AGENT_PID=17895
+SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/17759,unix/unix:/tmp/.ICE-unix/17759
+SERIALTTY=/dev/ttyUSB0
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+RUNAS=/share/b/runas/x86_64
+RISCV=/home/ff/eecs151/tools-151/riscv-toolchain-fa21
+QT_GRAPHICSSYSTEM_CHECKED=1
+QT_GRAPHICSSYSTEM=native
+QTLIB=/usr/lib64/qt-3.3/lib
+QTINC=/usr/lib64/qt-3.3/include
+QTDIR=/usr/lib64/qt-3.3
+PULSE_CLIENTCONFIG=/home/cc/eecs151/fa22/class/eecs151-afk/.x2go/C-eecs151-afk-61-1663039246_stDMATE_dp32/.pulse-client.conf
+OVA_UUM=0
+OS=Linux
+ORIGINAL_XDG_CURRENT_DESKTOP=MATE
+NO_AT_BRIDGE=1
+NNTPSERVER=news.csua.berkeley.edu
+MODULES_RUN_QUARANTINE=LD_LIBRARY_PATH LD_PRELOAD
+MODULES_CMD=/usr/share/Modules/libexec/modulecmd.tcl
+MODULESHOME=/usr/share/Modules
+MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles
+MGLS_LICENSE_FILE=1717@license-srv.eecs.berkeley.edu
+MFLAGS=
+MATE_DESKTOP_SESSION_ID=this-is-deprecated
+MASTERDIR=/home/ff/eecs151
+MASTER=eecs151
+MAKELEVEL=1
+MAKEFLAGS=
+LM_PROJECT=bwrc_users
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_ALL=C
+IMSETTINGS_MODULE=none
+IMSETTINGS_INTEGRATE_DESKTOP=yes
+HISTCONTROL=ignoredups
+GTK_OVERLAY_SCROLLING=0
+GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
+GDK_BACKEND=x11
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-5HvUNAPXeN,guid=2de19691ab34ce52bf913044631ff717
+CVS_RSH=ssh
+CONFIG_SHELL=/usr/bin/ksh
+COLORTERM=truecolor
+CHROME_DESKTOP=code-url-handler.desktop
+CDS_LIC_FILE=5280@license-srv.eecs.berkeley.edu
+BASH_FUNC_module()=() {  eval `/usr/bin/tclsh /usr/share/Modules/libexec/modulecmd.tcl bash "$@"`;_ _mlstatus=$?;_ return $_mlstatus_}
+BASH_FUNC_ml()=() {  module ml "$@"_}
+ARCH=x86_64
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL=true
+AGILEESOFD_LICENSE_FILE=27000@license-srv.eecs.berkeley.edu
+ADS_LICENSE_FILE=27000@license-srv.eecs.berkeley.edu
+0
+8
+1662619744 adder_testbench.v
+1662716077 /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/z1top.v
+1662708709 /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/structural_adder.v
+1662709545 /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/full_adder.v
+1662749213 /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/counter.v
+1662619744 /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/behavioral_adder.v
+1662619744 /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/src/adder_tester.v
+1559359020 /share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/vcsdp.tab
+4
+1559360489 /share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/libvirsim.so
+1559360051 /share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/liberrorinf.so
+1559360008 /share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/libsnpsmalloc.so
+1559360050 /share/instsww/synopsys-new/vcs/P-2019.06/linux64/lib/libvfs.so
+1663039966 adder_testbench.tb.daidir
+-1 partitionlib

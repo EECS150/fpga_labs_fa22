@@ -1,0 +1,41 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
+| Date         : Mon Sep 12 21:22:51 2022
+| Host         : c111-2.eecs.berkeley.edu running 64-bit CentOS Linux release 7.9.2009 (Core)
+| Command      : report_drc -file post_synth_drc.rpt
+| Design       : z1top
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Synthesized
+----------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: z1top
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 1
++--------+----------+--------------------+------------+
+| Rule   | Severity | Description        | Violations |
++--------+----------+--------------------+------------+
+| ZPS7-1 | Warning  | PS7 block required | 1          |
++--------+----------+--------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+ZPS7-1#1 Warning
+PS7 block required  
+The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+Related violations: <none>
+
+

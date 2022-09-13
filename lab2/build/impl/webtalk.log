@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Thu Sep  8 18:41:03 2022
+# Process ID: 18924
+# Current directory: /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build/impl
+# Command line: wbtcv -mode batch -source /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build/impl/.Xil/Vivado-18187-c111-13.eecs.berkeley.edu/webtalk/labtool_webtalk.tcl -notrace
+# Log file: /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build/impl/webtalk.log
+# Journal file: /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build/impl/webtalk.jou
+#-----------------------------------------------------------
+source /home/cc/eecs151/fa22/class/eecs151-afk/fpga_labs_fa22/lab2/build/impl/.Xil/Vivado-18187-c111-13.eecs.berkeley.edu/webtalk/labtool_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Sep  8 18:41:03 2022...
