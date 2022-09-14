@@ -331,7 +331,13 @@ When `next_sample` is low, you should freeze the state of your module since the 
 <!-- The `code` should be held constant while `next_sample` is low, and on the cycle when `next_sample` is high, the `code` can change on the next rising edge. -->
 
 The square wave generator should output the codes for a 440 Hz square wave.
+
 *Note*: `125e6 / 1024 / 440 / 2 = 138.7 ~ 139`
+
+- `125e6` clock cycles / second
+- `1024` clock cycles / pulse window cycle
+- `440` square cycles / second
+- `2` value paritions / square cycles (a square wave is high half the time & low the other half) 
 
 When the square wave is high, the `code` should be 562, and when the square wave is low, the `code` should be 462.
 Avoid using the full `code` range from 0-1023 to keep the volume low.
