@@ -301,14 +301,16 @@ Since we have a fast 125 MHz clock, we can generate a PWM signal to drive the `A
 Let's make the pulse window **1024 cycles** of the 125 MHz clock.
 This gives us 10 bits of resolution, and gives a PWM frequency of `125MHz / 1024 = 122 kHz` which is much greater than the filter cutoff.
 
-**Implement** the circuit in `src/dac.v` to drive the `pwm` output based on the `code` input.
-The `code` is the number of clock cycles in the pulse window during which the `pwm` output should be high.
+**Implement** the circuit in `src/dac.v` to drive the `pwm` output based on the `code` input. Assuming clock cycles are 0-indexed, the `code` is the clock cycle (up to and including) in the pulse window during which the `pwm` output should be high. `code = 0` is an edge case where `pwm` should be 0 for the entire pulse window of 1024 cycles.
 
 For example:
-  - If `code = 0`, `pwm` should be 0 for the entire pulse window (1024 cycles)
-  - If `code = 1023`, `pwm` should be 1 for the entire pulse window
-  - If `code = 511`, `pwm` should be 1 for cycles 0 - 510 and 0 for cycles 512-1023
-
+  - If `code = 0`: 
+    - `pwm` should be 0 for the entire pulse window of 1024 cycles
+  - If `code = 511`, `pwm` should be 1 for cycles 0 - 511 and 0 for cycles 512-1023
+    - 511 - 0 + 1 = 512 cycles high, 1023 - 512 + 1 = 512 cycles high
+  - If `code = 1023`, `pwm` should be 1 the entire pulse window
+    - 1023 - 0 + 1 = 1024 cycles high
+      
 You can assume that `code` will only change every 1024 cycles.
 
 The DAC should also output a signal called `next_sample` to tell the outside world that it can safely change the `code` before another pulse window begins.
