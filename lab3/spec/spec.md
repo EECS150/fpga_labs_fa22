@@ -307,7 +307,7 @@ The `code` is the number of clock cycles in the pulse window during which the `p
 For example:
   - If `code = 0`, `pwm` should be 0 for the entire pulse window (1024 cycles)
   - If `code = 1023`, `pwm` should be 1 for the entire pulse window
-  - If `code = 511`, `pwm` should be 1 for cycles 0 - 511 and 0 for cycles 512-1023
+  - If `code = 511`, `pwm` should be 1 for cycles 0 - 510 and 0 for cycles 512-1023
 
 You can assume that `code` will only change every 1024 cycles.
 
