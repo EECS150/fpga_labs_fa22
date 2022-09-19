@@ -123,7 +123,7 @@ A **continuous time** sine wave, with a frequency $f_{sig}$, can be written as:
 <img height=20 src="https://render.githubusercontent.com/render/math?math=f(t) = sin(2 \pi f_{sig} t)">
 </p>
 
-If this sine wave is sampled with sampling frequency $f_{samp}$ ($f_{samp} = 125e6 / 1024 = 122\text{ kHz}$ in our case), the resulting stream of discrete time samples is:
+If this sine wave is sampled with sampling frequency $f_{samp}$ (= 125e6 / 1024 = 122 kHz in our case), the resulting stream of discrete time samples is:
 
 <p align=center>
 <img height=30 src="https://render.githubusercontent.com/render/math?math=f[n] = sin (2 \pi f_{sig} \frac{n}{f_{samp}})">
