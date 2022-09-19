@@ -3,8 +3,7 @@
 Prof. Sophia Shao
 </p>
 <p align="center">
-TAs: Alisha Menon, Yikuan Chen, Seah Kim
-</p>
+TAs: (ordered by section) Yikuan Chen, Simon Guo, Jennifer Zhou, Paul Kwon, Ella Schwarz, Raghav Gupta</p>
 <p align="center">
 Department of Electrical Engineering and Computer Science
 </p>
@@ -15,16 +14,16 @@ College of Engineering, University of California, Berkeley
 ## Before You Begin
 ### Fetch Latest Lab Skeleton
 ```shell
-cd fpga_labs_sp22
+cd fpga_labs_fa22
 git pull origin master
 ```
 
 ### Verilog Reading
 Look through these documents if you haven't already.
 
-- [Verilog Primer Slides](https://inst.eecs.berkeley.edu/~eecs151/sp22/files/verilog/Verilog_Primer_Slides.pdf) - overview of the Verilog language
-- [wire vs reg](https://inst.eecs.berkeley.edu/~eecs151/sp22/files/verilog/wire_vs_reg.pdf) - the differences between `wire` and `reg` nets and when to use each one
-- [always @ blocks](https://inst.eecs.berkeley.edu/~eecs151/sp22/files/verilog/always_at_blocks.pdf) - understanding the differences between the two types of `always @` blocks and what they synthesize to
+- [Verilog Primer Slides](https://inst.eecs.berkeley.edu/~eecs151/fa22/files/verilog/Verilog_Primer_Slides.pdf) - overview of the Verilog language
+- [wire vs reg](https://inst.eecs.berkeley.edu/~eecs151/fa22/files/verilog/wire_vs_reg.pdf) - the differences between `wire` and `reg` nets and when to use each one
+- [always @ blocks](https://inst.eecs.berkeley.edu/~eecs151/fa22/files/verilog/always_at_blocks.pdf) - understanding the differences between the two types of `always @` blocks and what they synthesize to
 
 ## Overview
 In this lab we will:
@@ -302,14 +301,16 @@ Since we have a fast 125 MHz clock, we can generate a PWM signal to drive the `A
 Let's make the pulse window **1024 cycles** of the 125 MHz clock.
 This gives us 10 bits of resolution, and gives a PWM frequency of `125MHz / 1024 = 122 kHz` which is much greater than the filter cutoff.
 
-**Implement** the circuit in `src/dac.v` to drive the `pwm` output based on the `code` input.
-The `code` is the number of clock cycles in the pulse window during which the `pwm` output should be high.
+**Implement** the circuit in `src/dac.v` to drive the `pwm` output based on the `code` input. Assuming clock cycles are 0-indexed, the `code` is the clock cycle (up to and including) in the pulse window during which the `pwm` output should be high. `code = 0` is an edge case where `pwm` should be 0 for the entire pulse window of 1024 cycles.
 
 For example:
-  - If `code = 0`, `pwm` should be 0 for the entire pulse window (1024 cycles)
-  - If `code = 1023`, `pwm` should be 1 for the entire pulse window
+  - If `code = 0`: 
+    - `pwm` should be 0 for the entire pulse window of 1024 cycles
   - If `code = 511`, `pwm` should be 1 for cycles 0 - 511 and 0 for cycles 512-1023
-
+    - 511 - 0 + 1 = 512 cycles high, 1023 - 512 + 1 = 512 cycles high
+  - If `code = 1023`, `pwm` should be 1 the entire pulse window
+    - 1023 - 0 + 1 = 1024 cycles high
+      
 You can assume that `code` will only change every 1024 cycles.
 
 The DAC should also output a signal called `next_sample` to tell the outside world that it can safely change the `code` before another pulse window begins.
@@ -330,7 +331,13 @@ When `next_sample` is low, you should freeze the state of your module since the 
 <!-- The `code` should be held constant while `next_sample` is low, and on the cycle when `next_sample` is high, the `code` can change on the next rising edge. -->
 
 The square wave generator should output the codes for a 440 Hz square wave.
+
 *Note*: `125e6 / 1024 / 440 / 2 = 138.7 ~ 139`
+
+- `125e6` clock cycles / second
+- `1024` clock cycles / pulse window cycle
+- `440` square cycles / second
+- `2` value paritions / square cycles (a square wave is high half the time & low the other half) 
 
 When the square wave is high, the `code` should be 562, and when the square wave is low, the `code` should be 462.
 Avoid using the full `code` range from 0-1023 to keep the volume low.
@@ -375,3 +382,4 @@ This lab is the result of the work of many EECS151/251 GSIs over the years inclu
 - Sp21: Sean Huang, Tan Nguyen
 - Fa21: Vighnesh Iyer, Charles Hong, Zhenghan Lin, Alisha Menon
 - Sp22: Alisha Menon, Yikuan Chen, Seah Kim
+- Fa22: Jennifer Zhou, Yikuan Chen

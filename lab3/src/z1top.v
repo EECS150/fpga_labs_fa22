@@ -29,7 +29,6 @@ module z1top (
 
     counter count (
         .clk(CLK_125MHZ_FPGA),
-        .ce(SWITCHES[0]),
         .buttons(buttons_pressed),
         .leds(LEDS[3:0])
     );
