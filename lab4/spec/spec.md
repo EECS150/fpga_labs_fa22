@@ -123,13 +123,13 @@ $$f(t) = sin(2 \pi f_{sig} t)$$
 
 If this sine wave is sampled with sampling frequency $f_{samp}$ (= 125e6 / 1024 = 122 kHz in our case), the resulting stream of discrete time samples is:
 
-$$f[n] = sin (2 \pi f_{sig} \frac{n}{f_{samp}})$$
+$$f[n] = sin \left(2 \pi f_{sig} \frac{n}{f_{samp}}\right)$$
 
 We want to let our hardware output such stream of samples. One way to do this is to use a **lookup table (LUT)** and a **phase accumulator** (PA, just a register that can increment its value).
 
 Say we have a LUT that contains sampled points for one period of a sine wave with $2^N$ entries. The entries `i` (where $0 \leq i \leq 2^N - 1$) of this LUT are:
 
-$$LUT[i] = sin(i \frac{2\pi}{2^N})$$
+$$LUT[i] = sin\left(i \frac{2\pi}{2^N}\right)$$
 
 To find the index ***i*** of the LUT that stores the ***n-th sample***, we can equate the expressions inside $sin()$:
 
@@ -140,7 +140,7 @@ This means that to calculate sample `n+1` for a given $f_{sig}$, we should take 
 
 To find the frequency step, $\Delta_{f,min}$ , of the NCO (a.k.a frequency resolution) we can look at how much of a change in $f_{sig}$ could cause the FCW, or phase increment, to increase by 1:
 
-$$\frac{f_{sig} %2B \Delta_{f,min}}{f_{samp}} 2^N = \frac{f_{sig}}{f_{samp}}2^N %2b 1$$
+$$\frac{f_{sig} + \Delta_{f,min}}{f_{samp}} 2^N = \frac{f_{sig}}{f_{samp}}2^N + 1$$
 $$\Delta_{f,min} = \frac{f_{samp}}{2^N}$$
 
 In the equation above, $2^N$ is the total number of frequencies we could represent using N bits. In this lab we will use `N=24`. Recall that in lab 3, our DAC has a frequency of `122kHz`, which means the frequency resolution is `0.007Hz`. We can have very precise frequency control using an NCO.
