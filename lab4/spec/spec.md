@@ -133,19 +133,17 @@ $$LUT[i] = sin\left(i \frac{2\pi}{2^N}\right)$$
 
 To find the index ***i*** of the LUT that stores the ***n-th sample***, we can equate the expressions inside $sin()$:
 
-```math
-i \frac{2 \pi}{2^N} = 2 \pi f_{sig} \frac{n}{f_{samp}}
-i = \underbrace{\left(\frac{f_{sig}}{f_{samp}} 2^N \right)}_{\text{phase increment}} n
-```
+$$i \frac{2 \pi}{2^N} = 2 \pi f_{sig} \frac{n}{f_{samp}}$$
+
+$$i = \underbrace{\left(\frac{f_{sig}}{f_{samp}} 2^N \right)}_{\text{phase increment}} n$$
 
 This means that to calculate sample `n+1` for a given $f_{sig}$, we should take the LUT index ***i*** that corresponds to sample `n` and increment the index by the **frequency control word (FCW)** (also called the **phase increment** in the equation above).
 
 To find the frequency step, $\Delta_{f,min}$ , of the NCO (a.k.a frequency resolution) we can look at how much of a change in $f_{sig}$ could cause the FCW, or phase increment, to increase by 1:
 
-```math
-\frac{f_{sig} + \Delta_{f,min}}{f_{samp}} 2^N = \frac{f_{sig}}{f_{samp}}2^N + 1
-\Delta_{f,min} = \frac{f_{samp}}{2^N}
-```
+$$\frac{f_{sig} + \Delta_{f,min}}{f_{samp}} 2^N = \frac{f_{sig}}{f_{samp}}2^N + 1$$
+
+$$\Delta_{f,min} = \frac{f_{samp}}{2^N}$$
 
 In the equation above, $2^N$ is the total number of frequencies we could represent using N bits. In this lab we will use `N=24`. Recall that in lab 3, our DAC has a frequency of `122kHz`, which means the frequency resolution is `0.007Hz`. We can have very precise frequency control using an NCO.
 
