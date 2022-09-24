@@ -48,13 +48,13 @@ In this lab we will:
 In lab 3, we built a simple square wave generator which can emit a fixed 440Hz square wave tone. We would like to add more functionality.
 
 ### Implementation
-Support 2 modes of frequency adjustment:
-  - *Linear Period Adjustment*: increase the frequency of the square wave linearly using the `STEP` parameter to determine how much to adjust the square wave period for every button press
+Support 2 modes of frequency adjustment, which can be achieved by directly adjusting the period:
+  - *Linear Period Adjustment*: linearly increase or decrease the period by the `STEP` parameter for every button press
   - *Exponential Period Adjustment*: double or halve the period of the square wave for every button press (*hint*: use bitshifts)
 
 Use the button inputs as follows:
-  - `button[0]` to increase the square wave frequency (decrease period)
-  - `button[1]` to decrease the square wave frequency (increase period)
+  - `button[0]` to decrease the period (thereby increasing the square wave frequency)
+  - `button[1]` to increase the period (thereby decreasing the square wave frequency)
   - `button[2]` to switch between the 2 modes of frequency adjustment (linear period step/exponential)
 
 Use `leds[0]` to display the frequency adjustment mode. The other `leds` can be set as you wish.
