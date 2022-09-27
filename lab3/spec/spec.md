@@ -275,7 +275,8 @@ In your testbench, you can **override** `CYCLES_PER_SECOND` when instantiating y
 
 <!-- We'd like suggest that you think about the structure of your design ahead of coding. The debouncer circuit figure above is a great example. Remember that Verilog coding is all about describing your hardware circuit! Sketch a block diagram of your mode counter circuit in terms of the \texttt{button\_parser} block and some register blocks from \verb|lib/EECS151.v| as you see fit. Label the relevant input and output signals. Feel free to use any logic gates, MUXes, or adders. Don't worry about listing all the details. Submit your sketched diagram in your report. -->
 
-## PWM DAC
+## PWM 
+Staff has put together a conceptual walkthrough for the DAC, and square wave generator: https://youtu.be/1FiaAPFCMFU
 ### Audio Out
 Look at Section 14 of the [Pynq Reference Manual](https://reference.digilentinc.com/reference/programmable-logic/pynq-z1/reference-manual) which describes the mono audio out feature on the Pynq board.
 
