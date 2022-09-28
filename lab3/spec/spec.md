@@ -18,6 +18,9 @@ cd fpga_labs_fa22
 git pull origin master
 ```
 
+### Lab Video Walkthrough
+Staff has prepared a [video walkthrough](https://youtu.be/1FiaAPFCMFU) on how the Audio component of the lab works. This video will help you understand how we can generate sound on the FPGA and the idea behind the Digital-to-Analog Converter and Square Wave Generator that you will be writing. We highly recommend watching it before attempting the audio portion of the lab.
+
 ### Verilog Reading
 Look through these documents if you haven't already.
 
@@ -383,4 +386,4 @@ This lab is the result of the work of many EECS151/251 GSIs over the years inclu
 - Sp21: Sean Huang, Tan Nguyen
 - Fa21: Vighnesh Iyer, Charles Hong, Zhenghan Lin, Alisha Menon
 - Sp22: Alisha Menon, Yikuan Chen, Seah Kim
-- Fa22: Jennifer Zhou, Yikuan Chen
+- Fa22: Jennifer Zhou, Yikuan Chen, Simon Guo
