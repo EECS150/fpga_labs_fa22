@@ -1,4 +1,4 @@
-# FPGA Lab 5: UART (Universal Asynchronous Receiver/Transmitter)
+# FPGA Lab 5: UART, FIFO, Memory Controller
 <p align="center">
 Prof. Sophia Shao
 </p>
