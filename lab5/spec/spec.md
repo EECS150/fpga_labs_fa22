@@ -69,7 +69,8 @@ assign output_1 = output_1_int;
 
 //4.an always@(posedge clk) block to handle state assignment
 always @ (posedge clk) begin
-  state <= next_state; // this is the only line that should be in this block. For reset, see the combinational block below
+  state <= next_state; // For this example, this is the only line that should be in this block. For reset, see the combinational block below
+  // Note that any sequential (flipflops) elements must be in posedge clk block (counter, accumulator, state etc.)
 end
 
 //5.one or more always@(*) blocks to handle 1) output for each state and 2) state transition logic (both of them may also depend on input)
