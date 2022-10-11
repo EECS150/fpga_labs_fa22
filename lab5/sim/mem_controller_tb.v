@@ -261,8 +261,9 @@ module mem_controller_tb();
             end
             for(z = 0; z < FIFO_DEPTH; z = z + 1) begin
                 // to show each entry of the 2D regs in your FIFOs on the waveform
-                $dumpvars(0, rx_fifo.data[z]);
-                $dumpvars(0, tx_fifo.data[z]);
+                // Uncomment the following lines and replace "data" with the name of your 2D reg
+                // $dumpvars(0, rx_fifo.data[z]);
+                // $dumpvars(0, tx_fifo.data[z]);
             end
         `endif
 
