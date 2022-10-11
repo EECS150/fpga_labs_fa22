@@ -42,9 +42,9 @@ This lab is divided into 2 parts.
 
 No FPGA testing for this part.
 
-### Part 2 (will be released by 10/07)
+### Part 2 (released 10/11)
 - Connect the FIFO and UART circuits together, bridging two ready-valid interfaces 
-- Design a memory controller that can echo the characters that your computer send through UART, store them, and playback in sequence.
+- Design a memory controller that takes read and write commands from a FIFO, interacts with a synchronous memory accordingly, and returns read results over another FIFO.
 - Extra Credit: Building a Fixed Note Length Piano
 
 This part will involve a working design on FPGA.
@@ -332,21 +332,85 @@ Here are a few tests to try:
   - Try writing and reading from the FIFO on the same cycle.
       This will require you to use fork/join to run two threads in parallel.
       Make sure that no data gets corrupted.
-
-<!---      
+      
 ## Memory Controller
-One of the key enabling block for the RISC-V CPU on the Final Project of this course is Memory-Mapped I/O. Specifically, we will use UART that we build in this lab to interface our computer and the RISC-V memories, e.g. to write instructions into the memories with the UART interface so our CPU could run those instructions. In this lab, we will build a simple UART-FIFO-MEMORY interface to get you familiarized with working with RAMs.
+
+Before proceeding further, please run `git pull origin master` and ensure the latest lab files have been pulled.
+
+One of the key enabling blocks for the RISC-V CPU on the Final Project of this course is Memory-Mapped I/O. Specifically, we will use UART that we build in this lab to interface between a host computer and a synchronous memory block. An instance of its use is to write instructions into the instruction memory with the UART interface so our CPU can run those instructions. In this lab, we will build a simple UART-FIFO-MEMORY interface to get you familiarized with working with RAMs.
 
 <p align=center>
   <img height=550 src="./figs/Lab5_Block_Diagram.png"/>
 </p>
 <p align=center>
-  <em>Block diagram of the system, note that the connections here are just for illustration purpose and do not represent the complete connection</em>
+  <em>Block diagram of the system, note that the connections here are just for the purpose of illustration and do not represent all connections</em>
 </p>
 
-### Operation of the Memory Controller
-There are two modes of operation that you need to implement in memory_controller.v, which are controlled by SWITCH[0] on your FPGA board.
+### Read/Write Packet
+The host side (your workstation computer) will send a two-byte packet (for read operation) or a three-byte packet (for write operation) to the FPGA via UART. 
+<p align=center>
+  <img height=100 src="./figs/mem_packets.png"/>
+</p>
+<p align=center>
+  <em>Format of data packets, write (ASCII '1' = 8'd49) is 1 on the keyboard, and read (ASCII '0' = 8'd48) is 0 on the keyboard</em>
+</p>
 
+
+### Operation of the Memory Controller
+<!-- There are two modes of operation that you need to implement in memory_controller.v, which are controlled by SWITCH[0] on your FPGA board. -->
+The role of the memory controller is to handle memory reads and writes based on the commands that the user sends from the host computer. Each operation is a multi-cycle process which consists of different states, so there will not be simultaneuous read & write cases. By "handling read or write", it means your FSM needs to set the `mem_din` (memory input data), `mem_addr` (memory address), `mem_we` (memory write enable) and FIFO communication signals properly.
+
+1. Your memory controller FSM should start with IDLE state upon pressing the reset button. It will make a read (**the 1st byte**) from the RX FIFO whenever the `rx_fifo_empty` signal becomes 0. (Extremely Important Tip: Refer to the FIFO timing diagram to see when the FIFO's output data is valid! Remember we're using a **synchronous** FIFO.) Then, it should wait for the next packet (the address byte) to arrive at the FIFO, so it could read that byte (**the 2nd byte**). 
+
+2. Next, depending on whether a Read (8'd48, or key 0 on the keyboard) or a Write (8'd49, or key 1 on the keyboard) command has been received for the first byte, the memory controller transitions into different states.
+
+3. 
+  - If the command was "write", then the FSM should wait for the data byte (**the 3rd byte**) to become available in the FIFO. Then it should write the data byte into the correct address in the "write memory value" state, and finally return to the IDLE state. 
+  - If the command was "read", then the value at the corrsponding address should be read from the RAM, and then sent to the TX_FIFO (and the control signals should be set accordingly) in the "echo value" state, followed by returning to the IDLE state. (Extremely Important Tip: Refer to the FIFO timing diagram to see how the FIFO's input signals should be set!)
+
+We recommend using `state_leds` to monitor current state on the FPGA. Some states will pass too quickly to be visible, but the "IDLE" and input states involve waiting 
+and hence should be easily visible. We will not be testing you on the use of `state_leds`.
+
+<p align=center>
+  <img height=300 src="./figs/flowchart.png"/>
+</p>
+<p align=center>
+  <em>Flow diagram of the FSM</em>
+</p>
+
+Keep in mind the input bytes might not be sent back-to-back, **so your FSM has to wait in the current state until it receives the next byte**.
+
+We have provided you with a skeleton for the FSM. You will see it is structured using multiple always blocks: 
+1. state register update (`always @ (posedge clk)`)
+2. next state logic (`always @ (*)`)
+3. output logic (`always @ (*)`)
+4. byte reading & packet counting, if needed (`always @ (posedge clk)`)
+
+Please feel free to use a different number of states, or different states, as long as you completely understand the required behavior and the design of your FSM. 
+
+In some FSM implementations, you could see people combining 2 & 3 into the same `always@(*)` block. It is just personal preference. In our lab, we recommend that you split them into two blocks.
+
+<!--
+One thing to keep in mind while implementing your memory controller FSM is that, since the FIFO uses synchronous read, the data will be available one clock cycle after "rx_fifo_rd_en" is asserted, so you need to read that byte at the correct time.
+-->
+
+### Running the testbench
+Once you finish the mem_controller.v, run the following to test its behavior:
+```shell
+make sim/mem_controller_tb.vpd
+dve -vpd sim/mem_controller_tb.vpd &
+```
+If you see all tests passed, proceed to testing the system level. If the simulation doesn't finish (gets stuck), press `ctrl+c` and type `quit`, then open up the `dve` tool to check the waveform. Does the timing of each state transition and control signal look correct (refer to the FIFO timing diagram above)?
+
+Then, run the system testbench, which requires your top level, uart, fifo, and memory controller to be all working together:
+```shell
+make sim/system_tb.vpd
+dve -vpd sim/system_tb.vpd &
+```
+
+If everything looks correct, go ahead an program the bitstream onto the FPGA board (see next section).
+
+<!--
 **Mode 0 (echo & store):**
 - The controller will look at the RX_FIFO to see if it has anything in it and will perform a read, and then load the value into RX_data_reg temporarily. This piece of data will also be written into TX_data_reg simultaneously, and the controller will send it into the TX_FIFO (if it's not full). 
 - Then, the value which is temporarily stored in RX_data_reg will be written into the RAM (memory.v, which is instantiated in memory_controller.v). Your circuit should handle the byte width(8) vs word bit-width (32) problem, and should also keep track of how many characters has been stored.
@@ -370,7 +434,7 @@ make sim/memory_controller_tb.vpd
 dve -vpd sim/memory_controller_tb.vpd&
 ```
 This test will require that your memory controller correctly echo the data (mode 0) and also be able to replay the stored values in the correct order (same as the order at which the data was sent by the testbench).
-
+-->
 
 
 ## On the FPGA
@@ -378,7 +442,7 @@ Use the standard `make impl` and `make program` to create and program a bitstrea
 
 **Pay attention to the warnings** generated by Vivado in `build/synth/synth.log`.
 It's possible to write your Verilog in such a way that it passes behavioural simulation but doesn't work in implementation.
-Warnings about `multi driven nets`, for example, can lead to certain logic pathways being optimized out.
+Warnings about `multi driven nets`, for example, can lead to certain logic pathways being optimized out. Latch synthesis is another notable cause of mismatch between simulation and FPGA behavior.
 
 ### PMOD USB-UART
 The PYNQ-Z1 does not have an RS-232 serial interface connected to the FPGA fabric.
@@ -395,26 +459,26 @@ Connect the PMOD module to the **top** row of the PMOD A port on the Pynq, and c
 </p>
 
 ### Hello World
-Make sure `SWITCH[0]` is at "off(0)" position so you are in mode 0. Reset the UART circuit on your FPGA with `buttons[0]`.
+Make sure `SWITCH[0]` is at "off(0)" position so you are in the memory controller mode. Reset the UART circuit on your FPGA with `buttons[0]`.
 
 On your workstation, run:
 ```shell
 screen $SERIALTTY 115200
 ```
 
-This opens `screen`, a terminal emulator, and connected to the serial device with a baud rate of 115200.
+This opens `screen`, a terminal emulator, connected to the serial device with a baud rate of 115200.
 When you type a character into the terminal, it is sent to the FPGA over the `FPGA_SERIAL_RX` line, encoded in ASCII.
-**The memory controller will echo the character you sent it**, pushing a new character over the `FPGA_SERIAL_TX` line to your workstation computer.
+When the memory controller sends a new character, it will be pushed over the `FPGA_SERIAL_TX` line to your workstation computer.
 When `screen` receives a character, it will display it in the terminal.
 
-If you have a working design, you can **type a few characters into the terminal** and have them echoed to you.
-Make sure that if you type really fast that all characters still display properly.
+<!--- If you have a working design, you can **type a few characters into the terminal** and have them echoed to you.
+Make sure that if you type really fast that all characters still display properly.--->
 
-If you see some weird garbage symbols then the data is getting corrupted and something is likely wrong.
+To test your implementation, type one character at a time. Send write packets (remember the byte corresponding to each character will be its ASCII value, ASCII charts are readily available online). Then send read packets with addresses you've written to and ensure you receive the data written earlier. 
+
+If you see some weird garbage symbols then the data is getting corrupted and something is likely wrong. 
 If you see this happening very infrequently, don't just hope that it won't happen while the TA is doing the checkoff; take the time now to figure out what is wrong.
 UART bugs are a common source of headaches for groups during the final project checkpoint.
-
-Then, without resetting your circuit, turn `SWITCH[0]` is at "on(1)" position so you are in mode 1. What you have typed before should be displayed in sequence again on the `screen`. To retest the circuit, switch back to mode 0 and press `reset` botton on the FPGA board.
 
 **To close `screen`, type `Ctrl-a` then `Shift-k` and answer `y` to the confirmation prompt.**
 If you don't close `screen` properly, other students won't be able to access the serial port on your workstation.
@@ -427,16 +491,11 @@ You can also reboot the computer to clear all active `screen` sessions.
 
 
 ## Lab Deliverables
-### Lab Checkoff (due in two weeks from your lab section)
+### Lab Checkoff (due Monday 10/17)
 To checkoff for this lab, have these things ready to show the TA:
   - Go through the UART simulation results and show that your UART behaves as expected. What do the testbenches do?
   - Go through the FIFO simulation results and show it works correctly.
-  - Demonstrate that you can type characters rapidly on the keyboard and have them echoed back in your `screen` session (mode 0)
-  - Demonstrate that the characters you entered can be replayed when you switch to mode 1.
---->
-
-## Lab Deliverables - Coming Soon!
-### Lab Checkoff (due in two weeks from your lab section)
+  - Demonstrate on FPGA that it can perform write and read operations with the memory: 1. read after write, in random addresses and orders (e.g. W-R-W-R or W-W-R-R etc.)
 
 ## Personal Laptop Instructions
 
@@ -454,10 +513,17 @@ Then connect using `sudo screen /dev/ttyUSB0 115200`
 After plugging in the USB cable, you may be prompted to install the FTDI drivers, so do that.
 Follow the [steps from here](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842446/Setup+a+Serial+Console) to use PuTTY to connect to the UART.
 
-<!---
 
 ## Extra Credit - Building a Fixed Note Length Piano
-The piano interfaces the UART with the NCO + DAC. You should be able to switch into this mode (from the memory_controller mode) by switch `SWITCH[1]` to on(1).
+
+### Copy Sources From Previous Lab
+```shell
+cd fpga_labs_fa22
+cp lab4/src/nco.v lab5/src/.
+cp lab4/src/dac.v lab5/src/.
+```
+
+The piano interfaces the UART with the NCO + DAC. You should be able to switch into this mode (from the memory_controller mode) by switch `SWITCH[0]` to on(1).
 Its job is to fetch notes sent from the UART, convert them to a `fcw`, and send them to the `nco` (and `dac`) for a **fixed amount of time**.
 
 <p align=center>
@@ -497,9 +563,11 @@ It is possible that the UART receiver FIFO can fill up with samples so fast that
 You don't need to concern yourself with detecting 'backpressure' on the entire system and can just assume that your FIFOs are large enough to buffer all the user input.
 
 ### Modify z1top
-**Open up `z1top.v` and modify it** to include the new modules you wrote.
+**Open up `z1top.v` and modify it** to include the new modules you wrote by uncommenting the last section of the file.
 Wire up the FIFOs and your `fixed_length_piano` + `nco` + `dac` according to the block diagram in the lab intro.
-You will have to add a few lines of logic (purple cloud) representing the bridge between the ready/valid interface and the FIFO's `rd_en, wr_en, full, empty` interface.
+
+
+<!--- You will have to add a few lines of logic (purple cloud) representing the bridge between the ready/valid interface and the FIFO's `rd_en, wr_en, full, empty` interface. ---> 
 
 Make sure that you parameterize your FIFOs properly so that they have the proper `WIDTH` and `DEPTH`.
 You can make your FIFOs as deep as you want, but 8 should be enough.
@@ -547,7 +615,6 @@ Use `buttons[1]` and `buttons[2]` to change the `note_length` of your piano.
 You should test the case where you make the `note_length` long, and fill up your UART FIFO by typing really fast.
 Then watch your FIFO drain slowly as each note is played for `note_length` time.
 
---->
 
 ## Acknowledgement
 This lab is the result of the work of many EECS151/251 GSIs over the years including:
@@ -566,4 +633,4 @@ This lab is the result of the work of many EECS151/251 GSIs over the years inclu
 - Sp21: Sean Huang, Tan Nguyen
 - Fa21: Vighnesh Iyer, Charles Hong, Zhenghan Lin, Alisha Menon
 - Sp22: Alisha Menon, Yikuan Chen, Seah Kim
-- Fa22: Yikuan Chen, Raghav Gupta, Ella Schwarz
+- Fa22: Yikuan Chen, Raghav Gupta, Ella Schwarz, Paul Kwon, Jennifer Zhou
