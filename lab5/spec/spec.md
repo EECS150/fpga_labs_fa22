@@ -491,7 +491,7 @@ You can also reboot the computer to clear all active `screen` sessions.
 
 
 ## Lab Deliverables
-### Lab Checkoff (due Monday 10/17)
+### Lab Checkoff (due 2 weeks EoD after assigned lab section , i.e., your lab section during the week of 10/17 - 10/21)
 To checkoff for this lab, have these things ready to show the TA:
   - Go through the UART simulation results and show that your UART behaves as expected. What do the testbenches do?
   - Go through the FIFO simulation results and show it works correctly.
