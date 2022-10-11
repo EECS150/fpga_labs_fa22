@@ -335,7 +335,16 @@ Here are a few tests to try:
       
 ## Memory Controller
 
-Before proceeding further, please run `git pull origin master` and ensure the latest lab files have been pulled.
+Before proceeding further, please run the following from the `lab5` directory:
+```shell
+git add .
+git commit -m "Lab 5 Part 1"
+git pull origin master
+``` 
+
+Files **you** have worked on so far in `src/` or `sim/` should be retained from your `"Lab 5 Part 1"` commit. 
+
+Ensure the latest lab files have been pulled. In particular, make sure line 5 of `sim/mem_controller_tb.v` is the comment `/* mem_controller_tb v2 */`.
 
 One of the key enabling blocks for the RISC-V CPU on the Final Project of this course is Memory-Mapped I/O. Specifically, we will use UART that we build in this lab to interface between a host computer and a synchronous memory block. An instance of its use is to write instructions into the instruction memory with the UART interface so our CPU can run those instructions. In this lab, we will build a simple UART-FIFO-MEMORY interface to get you familiarized with working with RAMs.
 
@@ -395,11 +404,14 @@ One thing to keep in mind while implementing your memory controller FSM is that,
 -->
 
 ### Running the testbench
-Once you finish the mem_controller.v, run the following to test its behavior:
+Once you finish the mem_controller.v, ensure line 5 of `sim/mem_controller_tb.v` is the comment `/* mem_controller_tb v2 */` and run the following to test its behavior:
 ```shell
 make sim/mem_controller_tb.vpd
 dve -vpd sim/mem_controller_tb.vpd &
 ```
+
+Note that both `mem_controller_tb.v` and `system_tb.v` requrie a correct fifo to interface with the memory controller.
+
 If you see all tests passed, proceed to testing the system level. If the simulation doesn't finish (gets stuck), press `ctrl+c` and type `quit`, then open up the `dve` tool to check the waveform. Does the timing of each state transition and control signal look correct (refer to the FIFO timing diagram above)?
 
 Then, run the system testbench, which requires your top level, uart, fifo, and memory controller to be all working together:
