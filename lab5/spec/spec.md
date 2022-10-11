@@ -384,7 +384,7 @@ and hence should be easily visible. We will not be testing you on the use of `st
   <img height=300 src="./figs/flowchart.png"/>
 </p>
 <p align=center>
-  <em>Flow diagram of the FSM</em>
+  <em>Flow diagram of the FSM, note that transitions back to the current state are not shown here</em>
 </p>
 
 Keep in mind the input bytes might not be sent back-to-back, **so your FSM has to wait in the current state until it receives the next byte**.
